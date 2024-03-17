@@ -11,7 +11,7 @@ class Application {
 
         this.config = config;
 
-        this.app = new PIXI.Application({resizeTo: window});
+        this.app = new PIXI.Application({ resizeTo: window });
         document.body.appendChild(this.app.view);
 
         this.scenes = new ScenesManager();
