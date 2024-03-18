@@ -32,4 +32,5 @@ export class Platform {
         tile.y = row * tile.height;
     }
 
+
 }
