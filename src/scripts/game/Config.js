@@ -26,6 +26,7 @@ export const Config = {
                 min: 60,
                 max: 200
             }
-        }
+        },
+        moveSpeed: -1.5
     },
 };
