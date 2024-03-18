@@ -11,6 +11,10 @@ export class Hero {
         this.maxJumps = App.config.hero.maxJumps;
         this.jumpIndex = 0;
     }
+    stayOnPlatform(platform) {
+        this.platform = platform;
+        this.jumpIndex = 0;
+    }
     startJump() {
         if (this.jumpIndex < this.maxJumps) {
             ++this.jumpIndex;
@@ -33,6 +37,7 @@ export class Hero {
         this.body = Matter.Bodies.rectangle(this.sprite.x + this.sprite.width / 2, this.sprite.y + this.sprite.height / 2, this.sprite.width, this.sprite.height, { friction: 0 });
         Matter.World.add(App.physics.world, this.body);
         this.body.gameHero = this;
+        console.log("this.body: ", this.body)
     }
 
     update() {
