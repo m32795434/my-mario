@@ -13,6 +13,11 @@ export class Game extends Scene {
     createHero() {
         this.hero = new Hero();
         this.container.addChild(this.hero.sprite);
+        this.container.interactive = true;
+        this.container.on("pointerdown", () => {
+            console.log("Jumpng!")
+            this.hero.startJump();
+        });
     }
     createPlatforms() {
         this.platfroms = new Platforms();
