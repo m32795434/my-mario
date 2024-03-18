@@ -2,6 +2,13 @@ import { Game } from "./Game";
 import { Tools } from "../system/Tools";
 
 export const Config = {
+    diamonds: {
+        chance: 0.4,
+        offset: {
+            min: 100,
+            max: 200
+        }
+    },
     bgSpeed: 2,
     loader: Tools.massiveRequire(require["context"]('./../../sprites/', true, /\.(mp3|png|jpe?g)$/)),
     scenes: {

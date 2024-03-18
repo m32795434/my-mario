@@ -16,8 +16,9 @@ export class Hero {
         this.jumpIndex = 0;
     }
     startJump() {
-        if (this.jumpIndex < this.maxJumps) {
+        if (this.platform || this.jumpIndex === 1) {
             ++this.jumpIndex;
+            this.platform = null;
             Matter.Body.setVelocity(this.body, { x: 0, y: -this.dy });
         }
     }
