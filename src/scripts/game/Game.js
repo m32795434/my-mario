@@ -55,6 +55,9 @@ export class Game extends Scene {
             console.log("Jumpng!")
             this.hero.startJump();
         });
+        this.hero.sprite.once("die", () => {
+            App.scenes.start("Game");
+        });
     }
     createPlatforms() {
         this.platfroms = new Platforms();
@@ -67,5 +70,13 @@ export class Game extends Scene {
     update(dt) {
         this.bg.update(dt);
         this.platfroms.update(dt);
+    }
+    destroy() {
+        Matter.Events.off(App.physics, 'collisionStart', this.onCollisionStart.bind(this));
+        App.app.ticker.remove(this.update, this);
+        this.bg.destroy();
+        this.hero.destroy();
+        this.platfroms.destroy();
+        this.labelScore.destroy();
     }
 }

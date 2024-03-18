@@ -22,5 +22,13 @@ export class Diamond {
             Matter.Body.setPosition(this.body, { x: this.sprite.width / 2 + this.sprite.x + this.sprite.parent.x, y: this.sprite.height / 2 + this.sprite.y + this.sprite.parent.y });
         }
     }
+    destroy() {
+        if (this.sprite) {
+            App.app.ticker.remove(this.update, this);
+            Matter.World.remove(App.physics.world, this.body);
+            this.sprite.destroy();
+            this.sprite = null;
+        }
+    }
 
 }
